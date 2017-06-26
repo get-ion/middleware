@@ -26,7 +26,7 @@ type Response struct {
 
 func TestBasicJwt(t *testing.T) {
 	var (
-		api             = ion.New()
+		app             = ion.New()
 		myJwtMiddleware = jwtmiddleware.New(jwtmiddleware.Config{
 			ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
 				return []byte("My Secret"), nil
@@ -51,8 +51,8 @@ func TestBasicJwt(t *testing.T) {
 		ctx.JSON(response)
 	}
 
-	api.Get("/secured/ping", myJwtMiddleware.Serve, securedPingHandler)
-	e := httptest.New(t, api)
+	app.Get("/secured/ping", myJwtMiddleware.Serve, securedPingHandler)
+	e := httptest.New(t, app)
 
 	e.GET("/secured/ping").Expect().Status(ion.StatusUnauthorized)
 
