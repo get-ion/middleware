@@ -10,6 +10,15 @@ $ go get github.com/get-ion/middleware/...
 
 Middleware is just a chain handlers which can be executed before or after the main handler, can transfer data between handlers and communicate with third-party libraries, they are just functions.
 
+| Middleware | Description | Example |
+| -----------|--------|-------------|
+| [jwt](https://github.com/get-ion/middleware/tree/master/jwt) | Middleware checks for a JWT on the `Authorization` header on incoming requests and decodes it. | [jwt/_example](https://github.com/get-ion/middleware/tree/master/jwt/_example) |
+| [cors](https://github.com/get-ion/middleware/tree/master/cors) | HTTP Access Control. | [cors/_example](https://github.com/get-ion/middleware/tree/master/cors/_example) |
+| [secure](https://github.com/get-ion/middleware/tree/master/secure) | Middleware that implements a few quick security wins. | [secure/_example](https://github.com/get-ion/middleware/tree/master/secure/_example/main.go) |
+| [tollbooth](https://github.com/get-ion/middleware/tree/master/tollboothic) | Generic middleware to rate-limit HTTP requests. | [tollbooth/_examples/limit-handler](https://github.com/get-ion/middleware/tree/master/tollbooth/_examples/limit-handler) |
+| [cloudwatch](https://github.com/get-ion/middleware/tree/master/cloudwatch) |  AWS cloudwatch metrics middleware. |[cloudwatch/_example](https://github.com/get-ion/middleware/tree/master/cloudwatch/_example) |
+| [new relic](https://github.com/get-ion/middleware/tree/master/newrelic) | Official [New Relic Go Agent](https://github.com/newrelic/go-agent). | [newrelic/_example](https://github.com/get-ion/middleware/tree/master/newrelic/_example) |
+| [prometheus](https://github.com/get-ion/middleware/tree/master/prometheus)| Easily create metrics endpoint for the [prometheus](http://prometheus.io) instrumentation tool | [prometheus/_example](https://github.com/get-ion/middleware/tree/master/prometheus/_example) |
 ### How can I register middleware?
 
 
