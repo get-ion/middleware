@@ -51,7 +51,7 @@ app.UseGlobal(func(ctx context.Context){}, myMiddleware2)
 
 ## Can I use standard net/http handler with ion?
 
-**Yes** you can, just pass the Handler inside the `handlerconv.FromStd` in order to be converted into ion.HandlerFunc and register it as you saw before.
+**Yes** you can, just pass the Handler inside the `ion.FromStd` in order to be converted into context.Handler and register it as you saw before.
 
 ### Convert handler which has the form of `http.Handler/HandlerFunc`
 
@@ -61,7 +61,6 @@ package main
 import (
 	"github.com/get-ion/ion"
 	"github.com/get-ion/ion/context"
-	"github.com/get-ion/ion/core/handlerconv"
 )
 
 func main() {
@@ -71,7 +70,7 @@ func main() {
 	     println(r.RequestURI)
 	})
 
-	sillyConvertedToIon := handlerconv.FromStd(sillyHTTPHandler)
+	sillyConvertedToIon := ion.FromStd(sillyHTTPHandler)
 	// FromStd can take (http.ResponseWriter, *http.Request, next http.Handler) too!
 	app.Use(sillyConvertedToIon)
 
